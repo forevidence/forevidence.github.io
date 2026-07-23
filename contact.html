@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact — ForEvidence.ai</title>
+  <meta name="description" content="Book a consultation, explore a credentialing partnership, or ask a question. ForEvidence.ai — evidence for responsible AI.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html"><span class="mark">Fe</span>ForEvidence<span class="dot">.ai</span></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a class="navlink" href="partner.html">Public Goods</a></li>
+      <li class="has-dropdown">
+        <a class="navlink" href="products.html">What we do <span class="caret">▾</span></a>
+        <ul class="dropdown">
+          <li><a href="products.html"><span class="d-title">Products</span><span class="d-sub">Evidence Fabric · Evidentia infrastructure</span></a></li>
+          <li><a href="services.html"><span class="d-title">Services</span><span class="d-sub">Evaluation · Assurance · Consultation · Evidentia programs</span></a></li>
+          <li><a href="societies.html"><span class="d-title">For professional societies</span><span class="d-sub">Your pathway, your IP, your 501(c)</span></a></li>
+        </ul>
+      </li>
+      <li><a class="navlink" href="approach.html">Approach</a></li>
+      <li><a class="navlink" href="insights.html">Insights</a></li>
+      <li><a class="navlink" href="about.html">About</a></li>
+      <li><a class="navlink" href="contact.html" aria-current="page">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="btn btn-primary btn-consult" href="contact.html">Book a consultation</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="padding:60px 0 40px;">
+    <div class="container">
+      <div class="narrow">
+        <span class="eyebrow">Contact</span>
+        <h1>Let's bring evidence to your AI</h1>
+        <p class="lede">Book a consultation, explore a credentialing partnership, or just ask a question. We read everything and reply personally.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container split">
+      <div>
+        <form class="form" action="#" method="post" onsubmit="alert('Form backend not yet connected — this is a draft. For now, please email info@forevidence.ai.'); return false;">
+          <div class="row">
+            <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" required></div>
+            <div class="field"><label for="org">Organization</label><input id="org" name="org" type="text"></div>
+          </div>
+          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required></div>
+          <div class="field">
+            <label for="topic">What can we help with?</label>
+            <select id="topic" name="topic">
+              <option>Evidence Fabric</option>
+              <option>AI Evaluation</option>
+              <option>AI Assurance</option>
+              <option>Enterprise consultation</option>
+              <option>Evidentia — credential programs</option>
+              <option>Public-goods partnership</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="field"><label for="msg">Message</label><textarea id="msg" name="message" placeholder="Tell us what you're deploying, assuring, or accrediting."></textarea></div>
+          <button class="btn btn-primary" type="submit">Send message</button>
+          <p class="muted" style="font-size:.85rem;margin:0;">Draft note: connect a form backend (e.g. Formspree, Netlify Forms) at deployment, or this form can post to email.</p>
+        </form>
+      </div>
+      <div>
+        <div class="card" style="background:var(--bg-soft);">
+          <div class="ico">✉</div>
+          <h3>Email us directly</h3>
+          <p>Prefer email? Reach us at <a href="mailto:info@forevidence.ai">info@forevidence.ai</a> and we'll get back to you.</p>
+          <hr style="border:0;border-top:1px solid var(--line);margin:1.2rem 0;">
+          <h3>Partner on a credential</h3>
+          <p>If you're a certification or accreditation body, tell us about your standard and we'll scope a <a href="services.html#evidentia-programs">Evidentia partnership</a>.</p>
+          <hr style="border:0;border-top:1px solid var(--line);margin:1.2rem 0;">
+          <h3>Join the mission</h3>
+          <p>Interested in building independent AI evidence capacity with us? Say hello — we're always meeting good people.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html"><span class="mark">Fe</span>ForEvidence<span class="dot">.ai</span></a>
+        <p>A public benefit corporation building the independent evidence capacity the AI era needs — for the organizations and people affected by AI, not only those selling it.</p>
+      </div>
+      <div><h4>What we do</h4><ul class="footer-links">
+        <li><a href="products.html">Products</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="societies.html">For professional societies</a></li>
+        <li><a href="partner.html">Public goods</a></li>
+      </ul></div>
+      <div><h4>Company</h4><ul class="footer-links">
+        <li><a href="approach.html">Approach</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="insights.html">Insights</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul></div>
+      <div><h4>Get in touch</h4><ul class="footer-links">
+        <li><a href="contact.html">Book a consultation</a></li>
+        <li><a href="partner.html">Partner with us</a></li>
+        <li><a href="mailto:info@forevidence.ai">info@forevidence.ai</a></li>
+              </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 ForEvidence.ai · Draft site — content under review.</span>
+      <span class="badge-venture">A public benefit corporation</span>
+    </div>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>

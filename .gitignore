@@ -1,0 +1,5 @@
+# Internal / not for publication — one-pagers stay local only
+*onepager*.html
+
+# OS noise
+.DS_Store
