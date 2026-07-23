@@ -9,3 +9,6 @@ email-signatures.html
 
 # Internal reference — brand sheet (SVG assets in assets/ ARE publishable)
 brand-logo.html
+
+# Local tooling state — not site content
+.claude/
