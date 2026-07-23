@@ -230,7 +230,15 @@
         <span class="eyebrow">Start a conversation</span>
         <h2>Tell us what you're working on</h2>
         <p>No formal proposal needed. A few lines about your organization and what you care about is plenty — we'll take it from there.</p>
-        <form class="form" action="#" method="post" onsubmit="alert('Form backend not yet connected — this is a draft. For now, please email partnerships@forevidence.ai.'); return false;">
+        <!--
+          Web3Forms — key registered to receive partner inquiries. See contact.html
+          for the general setup notes; this one is already live with a real key.
+        -->
+        <form class="form w3f-form" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="3103d14f-3255-4a70-9fae-1c72f0372a84">
+          <input type="hidden" name="subject" value="New partnership inquiry from the ForEvidence.ai public-goods page">
+          <input type="hidden" name="from_name" value="ForEvidence.ai — Partner inquiry form">
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
           <div class="row">
             <div class="field"><label for="pname">Name</label><input id="pname" name="name" type="text" required></div>
             <div class="field"><label for="porg">Organization</label><input id="porg" name="org" type="text" required></div>
@@ -262,7 +270,7 @@
           </div>
           <div class="field"><label for="pmsg">What are you working on?</label><textarea id="pmsg" name="message" placeholder="A few lines about your organization and what you'd want to build together."></textarea></div>
           <button class="btn btn-primary" type="submit">Send</button>
-          <p class="muted" style="font-size:.85rem;margin:0;">Draft note: connect a form backend at deployment.</p>
+          <p class="form-status" role="status" aria-live="polite" style="font-size:.85rem;margin:0;min-height:1.2em;"></p>
         </form>
       </div>
       <div>
@@ -313,7 +321,7 @@
         <li><a href="contact.html">Contact</a></li>
       </ul></div>
       <div><h4>Get in touch</h4><ul class="footer-links">
-        <li><a href="contact.html">Book a consultation</a></li>
+        <li><a href="contact.html">Start a conversation</a></li>
         <li><a href="partner.html">Partner with us</a></li>
         <li><a href="mailto:info@forevidence.ai">info@forevidence.ai</a></li>
               </ul></div>
