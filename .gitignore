@@ -3,3 +3,9 @@
 
 # OS noise
 .DS_Store
+
+# Internal reference — email signatures
+email-signatures.html
+
+# Internal reference — brand sheet (SVG assets in assets/ ARE publishable)
+brand-logo.html

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 130" role="img" aria-label="ForEvidence.ai">
+  <defs>
+    <linearGradient id="fe-g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#16457a"/>
+      <stop offset="1" stop-color="#12a594"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(96,0)">
+    <rect width="64" height="64" rx="14" fill="url(#fe-g)"/>
+    <text x="30" y="42" text-anchor="middle"
+          font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif"
+          font-size="28" font-weight="800" letter-spacing="-0.5" fill="#ffffff">Fe</text>
+    <circle cx="49" cy="47" r="4.5" fill="#d98a2b"/>
+  </g>
+  <text x="128" y="97" text-anchor="middle"
+        font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif"
+        font-size="24" font-weight="800" letter-spacing="-0.5" fill="#0f1b2d">ForEvidence<tspan fill="#12a594">.ai</tspan></text>
+  <text x="128" y="114" text-anchor="middle"
+        font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif"
+        font-size="8" font-weight="500" letter-spacing="0.1" fill="#5f7188">THE INDEPENDENT EVIDENCE LAYER FOR RESPONSIBLE AI</text>
+</svg>
