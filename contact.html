@@ -48,7 +48,27 @@
   <section>
     <div class="container split">
       <div>
-        <form class="form" action="#" method="post" onsubmit="alert('Form backend not yet connected — this is a draft. For now, please email info@forevidence.ai.'); return false;">
+        <!--
+          Web3Forms — free, no account required to receive submissions.
+          1. Go to https://web3forms.com/ and enter the inbox that should receive
+             messages (e.g. pyhsueh@gmail.com — this is where info@forevidence.ai
+             already forwards, so submissions and regular email land in one place).
+          2. Web3Forms emails you an Access Key instantly. No login, no dashboard
+             signup required for this step.
+          3. Paste that key as the value of the hidden "access_key" input below,
+             replacing YOUR_WEB3FORMS_ACCESS_KEY.
+          4. Optional: create a free account at https://web3forms.com/ to see a
+             searchable log of every submission (Dashboard → Submissions), in
+             addition to the emails.
+          Until the real key is pasted in, submissions will fail — .w3f-form's
+          JS (main.js) shows an inline error and points visitors to the direct
+          email link instead, so the form never fails silently.
+        -->
+        <form class="form w3f-form" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+          <input type="hidden" name="subject" value="New message from the ForEvidence.ai contact form">
+          <input type="hidden" name="from_name" value="ForEvidence.ai website">
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
           <div class="row">
             <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" required></div>
             <div class="field"><label for="org">Organization</label><input id="org" name="org" type="text"></div>
@@ -68,7 +88,7 @@
           </div>
           <div class="field"><label for="msg">Message</label><textarea id="msg" name="message" placeholder="Tell us what you're deploying, assuring, or accrediting."></textarea></div>
           <button class="btn btn-primary" type="submit">Send message</button>
-          <p class="muted" style="font-size:.85rem;margin:0;">Draft note: connect a form backend (e.g. Formspree, Netlify Forms) at deployment, or this form can post to email.</p>
+          <p class="form-status" role="status" aria-live="polite" style="font-size:.85rem;margin:0;min-height:1.2em;"></p>
         </form>
       </div>
       <div>
