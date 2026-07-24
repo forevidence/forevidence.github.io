@@ -1,0 +1,29 @@
+name: Update last-updated date
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  update-date:
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Write last-updated.json
+        run: |
+          DATE=$(git log -1 --format='%cd' --date=format:'%B %-d, %Y')
+          printf '{ "date": "%s" }\n' "$DATE" > last-updated.json
+
+      - name: Commit if changed
+        run: |
+          if ! git diff --quiet -- last-updated.json; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add last-updated.json
+            git commit -m "chore: update last-updated date [skip ci]"
+            git push
+          fi

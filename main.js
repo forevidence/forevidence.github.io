@@ -9,6 +9,17 @@
       toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
     });
   }
+  // Footer "last updated" date, kept current by the update-last-updated workflow.
+  var lastUpdated = document.getElementById('last-updated');
+  if (lastUpdated) {
+    fetch('last-updated.json')
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (data && data.date) lastUpdated.textContent = 'Last updated: ' + data.date;
+      })
+      .catch(function () {});
+  }
+
   // On mobile, tapping a dropdown parent expands it instead of navigating.
   document.querySelectorAll('.has-dropdown > .navlink').forEach(function (el) {
     el.addEventListener('click', function (e) {
