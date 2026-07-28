@@ -58,7 +58,8 @@
           if (json.success) {
             form.reset();
             if (status) {
-              status.textContent = 'Thanks — we’ve got it and will reply personally.';
+              status.textContent = form.getAttribute('data-success') ||
+                'Thanks — we’ve got it and will reply personally.';
               status.style.color = '#12a594';
             }
           } else {
