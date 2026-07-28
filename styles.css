@@ -319,3 +319,16 @@ tbody tr:last-child td { border-bottom: 0; }
   .footer-grid { grid-template-columns: 1fr; }
   section { padding: 56px 0; }
 }
+
+/* --- Daily Brief (briefs.html) --- */
+.brief-head { margin-bottom: 1.2rem; }
+.brief-notice {
+  background: var(--brand-050); border: 1px solid var(--line-strong);
+  border-radius: var(--radius); padding: .8rem 1rem; font-size: .95rem; color: var(--ink-soft);
+}
+.brief-correction {
+  border-left: 3px solid var(--amber); padding-left: .8rem;
+  font-size: .95rem; color: var(--ink-soft);
+}
+.brief-archive { list-style: none; padding: 0; margin: .6rem 0 0; }
+.brief-archive li { padding: .35rem 0; border-bottom: 1px solid var(--line); font-size: .95rem; }

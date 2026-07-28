@@ -20,6 +20,7 @@ One brand, three surfaces:
 | `partner.html` | Public-goods layer + partnership call (nonprofits, academic centers, foundations, companies) |
 | `approach.html` | Methodology |
 | `insights.html` | Insights / blog index |
+| `briefs.html` | Policy Signal Daily Brief (renders `briefs/data/*.json`; see below) |
 | `about.html` | About / mission |
 | `contact.html` | Contact + form |
 | `onepage.html` | Single-scroll landing page (alternative / interim) |
@@ -62,6 +63,22 @@ this machine only. Share them as PDFs (Cmd+P → Save as PDF), never as links.
 - [ ] Wire the contact + partner forms to a backend (Formspree / Web3Forms / Netlify Forms).
 - [ ] Set up email forwarding for `info@forevidence.ai` and `partnerships@forevidence.ai`
       (Namecheap Email Redirect is free). All site + one-pager copy now uses `info@` (not `hello@`).
+
+## Policy Signal Daily Brief
+`briefs.html` renders a daily brief from `briefs/data/` — one immutable JSON file per day
+plus `index.json`, validated by `.github/workflows/validate-briefs.yml` (schema,
+plain-text sanitization, https-only citations, immutability, index consistency). The data
+is written by the Policy Signal publisher (a separate, private system); humans should not
+hand-edit published day files except to append `corrections[]`. The Policy Signal design
+docs (plan review, PRD, technical design) are private — `docs/policy-signal/` is
+gitignored here and the documents live in the personal knowledge repo.
+
+Deploy-time steps for the brief section:
+- [ ] Mark the `Validate Daily Brief data` workflow as a **required status check** on `main`.
+- [ ] Switch GitHub Pages to **deploy from GitHub Actions** so the validation gate fronts
+      every deploy that touches brief data (TDD §6).
+- [ ] Create the path-restricted GitHub App identity for the publisher (push ruleset
+      limiting it to `briefs/data/**`).
 
 ## Notes
 - All content is **draft copy for review** — footers are marked accordingly.

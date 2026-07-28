@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'">
+  <title>Daily Brief — ForEvidence.ai</title>
+  <meta name="description" content="Policy Signal Daily Brief: a daily, citation-complete record of movement in AI governance — bills, rules, standards, and enforcement across jurisdictions.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html"><span class="mark">Fe</span>ForEvidence<span class="dot">.ai</span></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a class="navlink" href="partner.html">Public Goods</a></li>
+      <li class="has-dropdown">
+        <a class="navlink" href="products.html">What we do <span class="caret">▾</span></a>
+        <ul class="dropdown">
+          <li><a href="products.html"><span class="d-title">Products</span><span class="d-sub">Evidence Fabric · Evidentia infrastructure</span></a></li>
+          <li><a href="services.html"><span class="d-title">Services</span><span class="d-sub">Evaluation · Assurance · Consultation · Evidentia programs</span></a></li>
+          <li><a href="societies.html"><span class="d-title">For professional societies</span><span class="d-sub">Your pathway, your IP, your 501(c)</span></a></li>
+        </ul>
+      </li>
+      <li><a class="navlink" href="approach.html">Approach</a></li>
+      <li><a class="navlink" href="insights.html">Insights</a></li>
+      <li><a class="navlink" href="about.html">About</a></li>
+      <li><a class="navlink" href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="btn btn-primary btn-consult" href="contact.html">Start a conversation</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="padding:60px 0 40px;">
+    <div class="container">
+      <div class="narrow">
+        <span class="eyebrow">Policy Signal</span>
+        <h1>The AI governance Daily Brief</h1>
+        <p class="lede">A daily, citation-complete record of movement in AI governance — bills, rulemakings, standards, registries, and enforcement across federal, state, and international sources.</p>
+        <p class="muted">Published every day, including days with nothing to report — so silence is always explicit, never an outage. Every item links its primary source.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container narrow">
+      <div id="brief-root" aria-live="polite">
+        <p class="muted">Loading today's brief…</p>
+      </div>
+      <noscript>
+        <p>This page renders the brief from a public JSON archive and requires JavaScript for display.
+        The data itself needs no JavaScript: browse the raw archive at
+        <a href="briefs/data/index.json">briefs/data/index.json</a> — one file per day.</p>
+      </noscript>
+      <div id="brief-archive-root"></div>
+    </div>
+  </section>
+
+  <section class="section-soft">
+    <div class="container narrow">
+      <h2>How this brief is produced</h2>
+      <p><strong>Signals are automated; analysis is human-approved.</strong> Deterministic watchers detect that an instrument appeared or changed — those facts publish automatically with a link to the primary source, and no machine-generated text. Any interpretive analysis is written with span-level citations and individually approved by an analyst before it can appear here. No generated text reaches this page without a human decision.</p>
+      <p><strong>Neutral by default.</strong> The brief reports what changed, where, with citations. It does not advocate on pending legislation.</p>
+      <p><strong>Immutable, with corrections.</strong> Once published, a day's brief is never silently edited. Errors are corrected by appended, timestamped correction notices, and the full archive remains browsable.</p>
+      <p class="muted">Questions about the methodology, evaluation targets, or guardrails behind this section? <a href="contact.html">Get in touch</a>.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html"><span class="mark">Fe</span>ForEvidence<span class="dot">.ai</span></a>
+        <p>A public benefit corporation building the independent evidence capacity the AI era needs — for the organizations and people affected by AI, not only those selling it.</p>
+      </div>
+      <div><h4>What we do</h4><ul class="footer-links">
+        <li><a href="products.html">Products</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="societies.html">For professional societies</a></li>
+        <li><a href="partner.html">Public goods</a></li>
+      </ul></div>
+      <div><h4>Company</h4><ul class="footer-links">
+        <li><a href="approach.html">Approach</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="insights.html">Insights</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul></div>
+      <div><h4>Get in touch</h4><ul class="footer-links">
+        <li><a href="contact.html">Start a conversation</a></li>
+        <li><a href="partner.html">Partner with us</a></li>
+        <li><a href="mailto:info@forevidence.ai">info@forevidence.ai</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 ForEvidence.ai · Draft site — content under review.</span>
+      <span id="last-updated" class="footer-updated"></span>
+      <span class="badge-venture">A public benefit corporation</span>
+    </div>
+  </div>
+</footer>
+<script src="main.js"></script>
+<script src="briefs.js"></script>
+</body>
+</html>
