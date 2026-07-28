@@ -21,6 +21,7 @@ One brand, three surfaces:
 | `approach.html` | Methodology |
 | `insights.html` | Insights / blog index |
 | `briefs.html` | Policy Signal Daily Brief (renders `briefs/data/*.json`; see below) |
+| `briefs-archive.html` | Daily Brief archive — every edition by month |
 | `about.html` | About / mission |
 | `contact.html` | Contact + form |
 | `onepage.html` | Single-scroll landing page (alternative / interim) |
@@ -41,7 +42,8 @@ Then open http://localhost:8787
   (a scripted find-and-replace across `*.html` is the easiest way).
 - Colors, spacing, and fonts come from the CSS variables at the top of `styles.css`
   (`:root { ... }`). Change once, applies everywhere.
-- Contact and partner forms are not yet wired to a backend — see below.
+- The contact, partner, and insights-signup forms submit via Web3Forms
+  (`.w3f-form` in `main.js`; access key in each form's hidden input).
 
 ## Deploy (edit → review → push → auto-redeploy)
 1. Edit files on a branch.
@@ -60,7 +62,7 @@ this machine only. Share them as PDFs (Cmd+P → Save as PDF), never as links.
 - [ ] Add a `CNAME` file containing `forevidence.ai` (GitHub Pages) or set the custom domain in the host dashboard.
 - [ ] Namecheap DNS: remove the existing `forevidence.ai → www` redirect and parking records, then add
       four A records for `@` (185.199.108–111.153) and a CNAME `www → <username>.github.io.`
-- [ ] Wire the contact + partner forms to a backend (Formspree / Web3Forms / Netlify Forms).
+- [x] Wire the contact + partner + insights-signup forms to a backend (Web3Forms).
 - [ ] Set up email forwarding for `info@forevidence.ai` and `partnerships@forevidence.ai`
       (Namecheap Email Redirect is free). All site + one-pager copy now uses `info@` (not `hello@`).
 
