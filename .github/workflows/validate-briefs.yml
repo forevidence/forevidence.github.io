@@ -1,0 +1,52 @@
+name: Validate Daily Brief data
+
+# Validation gate for briefs/data/** (Policy Signal Daily Brief).
+# Make this a required status check on main so brief data cannot deploy
+# without passing schema, sanitization, immutability, and citation checks.
+# See docs/policy-signal/TECHNICAL_DESIGN.md §6.
+
+on:
+  pull_request:
+    paths:
+      - "briefs/**"
+      - "briefs.js"
+      - "briefs.html"
+      - ".github/scripts/validate_briefs.py"
+      - ".github/workflows/validate-briefs.yml"
+  push:
+    branches: [main]
+    paths:
+      - "briefs/**"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install validator dependencies
+        run: pip install jsonschema
+
+      - name: Determine base ref
+        id: base
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            echo "ref=${{ github.event.pull_request.base.sha }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "ref=${{ github.event.before }}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Validate brief data
+        run: |
+          python .github/scripts/validate_briefs.py \
+            --base-ref "${{ steps.base.outputs.ref }}" \
+            --check-urls

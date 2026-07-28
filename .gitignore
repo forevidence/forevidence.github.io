@@ -12,3 +12,7 @@ brand-logo.html
 
 # Local tooling state — not site content
 .claude/
+
+# Internal / not for publication — Policy Signal design docs
+# (plan review, PRD, and technical design live in the private knowledge repo)
+docs/policy-signal/
