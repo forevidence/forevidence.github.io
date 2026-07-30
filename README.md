@@ -24,7 +24,6 @@ One brand, three surfaces:
 | `briefs-archive.html` | Daily Brief archive — every edition by month |
 | `about.html` | About / mission |
 | `neutrality.html` | Neutrality &amp; Independence Policy (v1.0, effective July 30, 2026) |
-| `register.html` | Public Disclosure Register (policy §8; update within 30 days of any change) |
 | `contact.html` | Contact + form |
 | `onepage.html` | Single-scroll landing page (alternative / interim) |
 | `company-onepager.html` | Printable one-page company summary (print to Letter → Save as PDF) |
