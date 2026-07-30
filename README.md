@@ -1,7 +1,7 @@
 # ForEvidence.ai
 
-Static marketing site for ForEvidence.ai — a public benefit corporation building
-independent evidence, evaluation, and assurance capacity for the AI era.
+Static marketing site for ForEvidence.ai — building independent evidence,
+evaluation, and assurance capacity for the AI era.
 Pure HTML/CSS + a tiny vanilla-JS nav script. No build step, no dependencies.
 
 ## Structure
@@ -23,7 +23,8 @@ One brand, three surfaces:
 | `briefs.html` | Policy Signal Daily Brief (renders `briefs/data/*.json`; see below) |
 | `briefs-archive.html` | Daily Brief archive — every edition by month |
 | `about.html` | About / mission |
-| `neutrality.html` | Neutrality &amp; Independence Policy (bracketed dates/thresholds pending) |
+| `neutrality.html` | Neutrality &amp; Independence Policy (v1.0, effective July 30, 2026) |
+| `register.html` | Public Disclosure Register (policy §8; update within 30 days of any change) |
 | `contact.html` | Contact + form |
 | `onepage.html` | Single-scroll landing page (alternative / interim) |
 | `company-onepager.html` | Printable one-page company summary (print to Letter → Save as PDF) |
@@ -86,5 +87,5 @@ Deploy-time steps for the brief section:
 ## Notes
 - All content is **draft copy for review** — footers are marked accordingly.
 - The site intentionally does not name any specific credentialing partner.
-- ForEvidence.ai is a PBC; foundation grants for the public-goods layer route through a
-  nonprofit partner or fiscal sponsor (reflected in `partner.html`).
+- Foundation grants for the public-goods layer route through a nonprofit partner or
+  fiscal sponsor (reflected in `partner.html`).
