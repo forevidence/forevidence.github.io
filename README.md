@@ -23,6 +23,7 @@ One brand, three surfaces:
 | `briefs.html` | Policy Signal Daily Brief (renders `briefs/data/*.json`; see below) |
 | `briefs-archive.html` | Daily Brief archive — every edition by month |
 | `about.html` | About / mission |
+| `neutrality.html` | Neutrality &amp; Independence Policy (bracketed dates/thresholds pending) |
 | `contact.html` | Contact + form |
 | `onepage.html` | Single-scroll landing page (alternative / interim) |
 | `company-onepager.html` | Printable one-page company summary (print to Letter → Save as PDF) |
