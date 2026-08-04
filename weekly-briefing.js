@@ -241,9 +241,13 @@
           });
         }
       })
-      .catch(function () {
+      .catch(function (err) {
+        // Note: do not guard on childNodes here — these roots contain a
+        // "Loading…" placeholder, so a childNodes check would suppress the
+        // error state and leave the placeholder up permanently.
+        if (window && window.console) console.error("Weekly Briefing:", err);
         if (weeklyRoot) renderError(weeklyRoot);
-        if (archivePageRoot && !archivePageRoot.childNodes.length) renderError(archivePageRoot);
+        if (archivePageRoot) renderError(archivePageRoot);
       });
   });
 })();
