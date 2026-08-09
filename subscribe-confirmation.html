@@ -8,21 +8,11 @@
   <meta name="robots" content="noindex">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
-  <!--
-    Google Analytics (GA4) — see subscribe.html for full setup instructions.
-    Replace "G-XXXXXXXXXX" with your real Measurement ID in both files.
-    Landing here means a subscription just succeeded, so this page also
-    fires a "sign_up" event — mark it as a key event in GA4 (Admin → Events)
-    to track subscriptions as a conversion.
-  -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
-    gtag('event', 'sign_up', { method: 'email_subscription' });
-  </script>
+  <!-- Landing here means a subscription just succeeded. analytics.js detects
+       this page and fires the GA4 "sign_up" conversion event, deduped per
+       browser session so refreshes don't double-count. Configure your GA4
+       Measurement ID once in analytics.js. -->
+  <script src="analytics.js" defer></script>
 </head>
 <body>
 <header class="site-header">

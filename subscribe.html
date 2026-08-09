@@ -7,26 +7,9 @@
   <meta name="description" content="Subscribe to the Daily Brief, the Weekly Briefing, or Insights from ForEvidence.ai — evidence for responsible AI, delivered to your inbox.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
-  <!--
-    Google Analytics (GA4)
-    1. Create a GA4 property at https://analytics.google.com/ (or reuse an
-       existing one) and copy its Measurement ID — it looks like G-XXXXXXXXXX.
-    2. Replace every "G-XXXXXXXXXX" below and in subscribe-confirmation.html
-       with that real ID.
-    3. The confirmation page fires a "sign_up" event when a visitor lands on
-       it after subscribing. In GA4, go to Admin → Events, find "sign_up",
-       and toggle "Mark as key event" so subscriptions show up as a
-       conversion in reports.
-    Until the real ID is pasted in, this snippet loads GA's library but
-    reports to no real property — harmless, but also not tracking anything.
-  -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
-  </script>
+  <!-- Google Analytics is configured once, site-wide, in analytics.js — set
+       your GA4 Measurement ID there (setup steps at the top of that file). -->
+  <script src="analytics.js" defer></script>
 </head>
 <body>
 <header class="site-header">
@@ -73,13 +56,17 @@
           contact.html for setup notes). This form posts a normal, JS-free
           request so the "redirect" field below reliably lands the visitor
           on subscribe-confirmation.html, where the subscription is counted
-          as a Google Analytics conversion.
+          as a Google Analytics conversion. analytics.js additionally fills
+          the hidden "attribution" field (UTM/referrer, reported in the
+          notification email) and appends the chosen lists to the redirect
+          URL so the conversion event records what was subscribed to.
         -->
-        <form class="form" action="https://api.web3forms.com/submit" method="POST">
+        <form class="form" data-subscribe-form action="https://api.web3forms.com/submit" method="POST">
           <input type="hidden" name="access_key" value="706f8261-7547-4167-a892-a88abc12e27c">
           <input type="hidden" name="subject" value="New subscriber — ForEvidence.ai">
           <input type="hidden" name="from_name" value="ForEvidence.ai subscribe page">
           <input type="hidden" name="redirect" value="https://forevidence.ai/subscribe-confirmation.html">
+          <input type="hidden" name="attribution" value="">
           <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
           <div class="field"><label for="sub-email">Email</label><input id="sub-email" name="email" type="email" required placeholder="you@organization.org"></div>
           <div class="field">
@@ -97,6 +84,7 @@
             </div>
           </div>
           <button class="btn btn-primary" type="submit">Subscribe</button>
+          <p class="form-status" role="status" aria-live="polite" style="font-size:.85rem;margin:0;min-height:1.2em;"></p>
         </form>
       </div>
       <div>
