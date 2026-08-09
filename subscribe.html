@@ -3,10 +3,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contact — ForEvidence.ai</title>
-  <meta name="description" content="Start a conversation, explore a credentialing partnership, or ask a question. ForEvidence.ai — evidence for responsible AI.">
+  <title>Subscribe — ForEvidence.ai</title>
+  <meta name="description" content="Subscribe to the Daily Brief, the Weekly Briefing, or Insights from ForEvidence.ai — evidence for responsible AI, delivered to your inbox.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
+  <!--
+    Google Analytics (GA4)
+    1. Create a GA4 property at https://analytics.google.com/ (or reuse an
+       existing one) and copy its Measurement ID — it looks like G-XXXXXXXXXX.
+    2. Replace every "G-XXXXXXXXXX" below and in subscribe-confirmation.html
+       with that real ID.
+    3. The confirmation page fires a "sign_up" event when a visitor lands on
+       it after subscribing. In GA4, go to Admin → Events, find "sign_up",
+       and toggle "Mark as key event" so subscriptions show up as a
+       conversion in reports.
+    Until the real ID is pasted in, this snippet loads GA's library but
+    reports to no real property — harmless, but also not tracking anything.
+  -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
 </head>
 <body>
 <header class="site-header">
@@ -26,7 +46,7 @@
       <li><a class="navlink" href="approach.html">Approach</a></li>
       <li><a class="navlink" href="insights.html">Insights</a></li>
       <li><a class="navlink" href="about.html">About</a></li>
-      <li><a class="navlink" href="contact.html" aria-current="page">Contact</a></li>
+      <li><a class="navlink" href="contact.html">Contact</a></li>
     </ul>
     <div class="nav-cta">
       <a class="btn btn-primary btn-consult" href="contact.html">Start a conversation</a>
@@ -38,9 +58,9 @@
   <section class="hero" style="padding:60px 0 40px;">
     <div class="container">
       <div class="narrow">
-        <span class="eyebrow">Contact</span>
-        <h1>Let's bring evidence to your AI</h1>
-        <p class="lede">Start a conversation, explore a credentialing partnership, or just ask a question. We read everything and reply personally.</p>
+        <span class="eyebrow">Subscribe</span>
+        <h1>Stay ahead of the evidence</h1>
+        <p class="lede">One inbox, three cadences: a citation-complete daily record, a reviewed weekly synthesis, and occasional perspectives — pick what fits.</p>
       </div>
     </div>
   </section>
@@ -49,59 +69,44 @@
     <div class="container split">
       <div>
         <!--
-          Web3Forms — free, no account required to receive submissions.
-          1. Go to https://web3forms.com/ and enter the inbox that should receive
-             messages (e.g. pyhsueh@gmail.com — this is where info@forevidence.ai
-             already forwards, so submissions and regular email land in one place).
-          2. Web3Forms emails you an Access Key instantly. No login, no dashboard
-             signup required for this step.
-          3. Paste that key as the value of the hidden "access_key" input below,
-             replacing YOUR_WEB3FORMS_ACCESS_KEY.
-          4. Optional: create a free account at https://web3forms.com/ to see a
-             searchable log of every submission (Dashboard → Submissions), in
-             addition to the emails.
-          Until the real key is pasted in, submissions will fail — .w3f-form's
-          JS (main.js) shows an inline error and points visitors to the direct
-          email link instead, so the form never fails silently.
+          Web3Forms — same access key and inbox as the contact form (see
+          contact.html for setup notes). This form posts a normal, JS-free
+          request so the "redirect" field below reliably lands the visitor
+          on subscribe-confirmation.html, where the subscription is counted
+          as a Google Analytics conversion.
         -->
-        <form class="form w3f-form" action="https://api.web3forms.com/submit" method="POST">
+        <form class="form" action="https://api.web3forms.com/submit" method="POST">
           <input type="hidden" name="access_key" value="706f8261-7547-4167-a892-a88abc12e27c">
-          <input type="hidden" name="subject" value="New message from the ForEvidence.ai contact form">
-          <input type="hidden" name="from_name" value="ForEvidence.ai website">
+          <input type="hidden" name="subject" value="New subscriber — ForEvidence.ai">
+          <input type="hidden" name="from_name" value="ForEvidence.ai subscribe page">
+          <input type="hidden" name="redirect" value="https://forevidence.ai/subscribe-confirmation.html">
           <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
-          <div class="row">
-            <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" required></div>
-            <div class="field"><label for="org">Organization</label><input id="org" name="org" type="text"></div>
-          </div>
-          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required></div>
+          <div class="field"><label for="sub-email">Email</label><input id="sub-email" name="email" type="email" required placeholder="you@organization.org"></div>
           <div class="field">
-            <label for="topic">What can we help with?</label>
-            <select id="topic" name="topic">
-              <option>Evidence Fabric</option>
-              <option>AI Evaluation</option>
-              <option>AI Assurance</option>
-              <option>Enterprise consultation</option>
-              <option>Evidentia — credential programs</option>
-              <option>Public-goods partnership</option>
-              <option>Something else</option>
-            </select>
+            <label>What should we send you?</label>
+            <div class="row" style="grid-template-columns:1fr;gap:.5rem;">
+              <label style="display:flex;align-items:center;gap:.5rem;font-weight:400;">
+                <input type="checkbox" name="lists" value="Daily Brief" checked> Daily Brief — the AI governance signal layer, every day
+              </label>
+              <label style="display:flex;align-items:center;gap:.5rem;font-weight:400;">
+                <input type="checkbox" name="lists" value="Weekly Briefing" checked> Weekly Briefing — reviewed synthesis, Friday evenings
+              </label>
+              <label style="display:flex;align-items:center;gap:.5rem;font-weight:400;">
+                <input type="checkbox" name="lists" value="Insights"> Insights — perspectives and methodology notes, as published
+              </label>
+            </div>
           </div>
-          <div class="field"><label for="msg">Message</label><textarea id="msg" name="message" placeholder="Tell us what you're deploying, assuring, or accrediting."></textarea></div>
-          <button class="btn btn-primary" type="submit">Send message</button>
-          <p class="form-status" role="status" aria-live="polite" style="font-size:.85rem;margin:0;min-height:1.2em;"></p>
+          <button class="btn btn-primary" type="submit">Subscribe</button>
         </form>
       </div>
       <div>
         <div class="card" style="background:var(--bg-soft);">
           <div class="ico">✉</div>
-          <h3>Email us directly</h3>
-          <p>Prefer email? Reach us at <a href="mailto:info@forevidence.ai">info@forevidence.ai</a> and we'll get back to you.</p>
+          <h3>Low volume, high signal</h3>
+          <p>Every edition links its primary sources. No filler, no growth-hacking — unsubscribe any time from the link in each email.</p>
           <hr style="border:0;border-top:1px solid var(--line);margin:1.2rem 0;">
-          <h3>Partner on a credential</h3>
-          <p>If you're a certification or accreditation body, tell us about your standard and we'll scope a <a href="services.html#evidentia-programs">Evidentia partnership</a>.</p>
-          <hr style="border:0;border-top:1px solid var(--line);margin:1.2rem 0;">
-          <h3>Join the mission</h3>
-          <p>Interested in building independent AI evidence capacity with us? Say hello — we're always meeting good people.</p>
+          <h3>Not ready to commit?</h3>
+          <p>Browse the <a href="briefs.html">Daily Brief</a>, the <a href="weekly-briefing.html">Weekly Briefing</a>, or <a href="insights.html">Insights</a> first — every page is public, no signup required.</p>
         </div>
       </div>
     </div>
@@ -132,7 +137,7 @@
         <li><a href="subscribe.html">Subscribe for updates</a></li>
         <li><a href="partner.html">Partner with us</a></li>
         <li><a href="mailto:info@forevidence.ai">info@forevidence.ai</a></li>
-              </ul></div>
+      </ul></div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 ForEvidence.ai · Draft site — content under review.</span>

@@ -24,6 +24,8 @@ One brand, three surfaces:
 | `briefs-archive.html` | Daily Brief archive — every edition by month |
 | `about.html` | About / mission |
 | `contact.html` | Contact + form |
+| `subscribe.html` | Subscribe to the Daily Brief / Weekly Briefing / Insights (Web3Forms → redirects to `subscribe-confirmation.html`) |
+| `subscribe-confirmation.html` | Post-subscription confirmation page; fires a GA4 `sign_up` event for conversion tracking (see in-file setup comment) |
 | `onepage.html` | Single-scroll landing page (alternative / interim) |
 | `company-onepager.html` | Printable one-page company summary (print to Letter → Save as PDF) |
 | `styles.css` | Shared stylesheet (design tokens at top) |

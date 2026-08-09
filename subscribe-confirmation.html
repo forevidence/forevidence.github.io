@@ -3,11 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'">
-  <title>Weekly Briefing archive — ForEvidence.ai</title>
-  <meta name="description" content="Full archive of the ForEvidence Weekly Briefing — every published edition, immutable with appended corrections.">
+  <title>Subscribed — ForEvidence.ai</title>
+  <meta name="description" content="You're subscribed. Confirmation page for ForEvidence.ai newsletter signups.">
+  <meta name="robots" content="noindex">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
+  <!--
+    Google Analytics (GA4) — see subscribe.html for full setup instructions.
+    Replace "G-XXXXXXXXXX" with your real Measurement ID in both files.
+    Landing here means a subscription just succeeded, so this page also
+    fires a "sign_up" event — mark it as a key event in GA4 (Admin → Events)
+    to track subscriptions as a conversion.
+  -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+    gtag('event', 'sign_up', { method: 'email_subscription' });
+  </script>
 </head>
 <body>
 <header class="site-header">
@@ -39,24 +54,24 @@
   <section class="hero" style="padding:60px 0 40px;">
     <div class="container">
       <div class="narrow">
-        <span class="eyebrow">Weekly Briefing</span>
-        <h1>Archive</h1>
-        <p class="lede">Every published edition of the ForEvidence Weekly Briefing, most recent first.</p>
-        <p class="muted">Editions are immutable once published. Errors are corrected by appended, timestamped notices rather than silent edits. <a href="weekly-briefing.html">Return to the latest edition →</a></p>
+        <span class="eyebrow">Subscription confirmed</span>
+        <h1>You're on the list</h1>
+        <p class="lede">Thanks for subscribing — your first edition will arrive on its regular schedule.</p>
       </div>
     </div>
   </section>
 
   <section>
     <div class="container narrow">
-      <div id="weekly-archive-page-root" aria-live="polite">
-        <p class="muted">Loading the archive…</p>
+      <div class="card" style="background:var(--bg-soft);">
+        <div class="ico">✓</div>
+        <h3>What happens next</h3>
+        <p>Each list you checked will start delivering on its normal cadence — the Daily Brief each day, the Weekly Briefing on Friday evenings, and Insights as new pieces publish. Every email includes an unsubscribe link.</p>
+        <hr style="border:0;border-top:1px solid var(--line);margin:1.2rem 0;">
+        <h3>While you wait</h3>
+        <p>Catch up on the archive: <a href="briefs-archive.html">Daily Brief</a> · <a href="weekly-briefing-archive.html">Weekly Briefing</a> · <a href="insights.html">Insights</a>.</p>
       </div>
-      <noscript>
-        <p>This page renders the archive from a public JSON index and requires JavaScript for display.
-        The data itself needs no JavaScript: browse the raw archive at
-        <a href="weekly-briefing/data/index.json">weekly-briefing/data/index.json</a>.</p>
-      </noscript>
+      <p class="muted" style="margin-top:1.5rem;">Wrong inbox, or didn't mean to sign up? Email <a href="mailto:info@forevidence.ai">info@forevidence.ai</a> and we'll remove you right away.</p>
     </div>
   </section>
 </main>
@@ -95,6 +110,5 @@
   </div>
 </footer>
 <script src="main.js"></script>
-<script src="weekly-briefing.js"></script>
 </body>
 </html>
