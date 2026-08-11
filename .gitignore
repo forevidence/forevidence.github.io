@@ -16,3 +16,6 @@ brand-logo.html
 # Internal / not for publication — Policy Signal design docs
 # (plan review, PRD, and technical design live in the private knowledge repo)
 docs/policy-signal/
+
+# Staged drafts live in Drive, never in this repo — CI enforces this
+weekly-briefing/data/pending/

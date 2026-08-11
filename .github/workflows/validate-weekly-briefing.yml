@@ -1,0 +1,50 @@
+name: Validate Weekly Briefing data
+
+# Validation gate for weekly-briefing/data/** — schema, immutability,
+# approval provenance, sanitization, empty pending/, citation resolution.
+# Companion to validate-briefs.yml (Daily Brief). Make this a required
+# status check on main.
+
+on:
+  pull_request:
+    paths:
+      - "weekly-briefing/**"
+      - "weekly-briefing.js"
+      - "weekly-briefing.html"
+      - "weekly-briefing-archive.html"
+      - ".github/scripts/validate_weekly.py"
+      - ".github/workflows/validate-weekly-briefing.yml"
+  push:
+    branches: [main]
+    paths:
+      - "weekly-briefing/**"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Determine base ref
+        id: base
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            echo "ref=${{ github.event.pull_request.base.sha }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "ref=${{ github.event.before }}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Validate weekly briefing data
+        run: |
+          python .github/scripts/validate_weekly.py \
+            --base-ref "${{ steps.base.outputs.ref }}" \
+            --check-urls
