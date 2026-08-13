@@ -3,11 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://api.github.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; base-uri 'self'; form-action 'self'; object-src 'none'">
-  <title>Daily Brief — ForEvidence.ai</title>
-  <meta name="description" content="Policy Signal Daily Brief: a daily, citation-complete record of movement in AI governance — bills, rules, standards, and enforcement across jurisdictions.">
+  <title>Subscribed — ForEvidence.ai</title>
+  <meta name="description" content="You're subscribed. Confirmation page for ForEvidence.ai newsletter signups.">
+  <meta name="robots" content="noindex">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
+  <!-- Landing here means a subscription just succeeded. analytics.js detects
+       this page and fires the GA4 "sign_up" conversion event, deduped per
+       browser session so refreshes don't double-count. Configure your GA4
+       Measurement ID once in analytics.js. -->
   <script src="analytics.js" defer></script>
 </head>
 <body>
@@ -40,38 +44,24 @@
   <section class="hero" style="padding:60px 0 40px;">
     <div class="container">
       <div class="narrow">
-        <span class="eyebrow">Policy Signal</span>
-        <h1>The AI governance Daily Brief</h1>
-        <p class="lede">A daily, citation-complete record of movement in AI governance — bills, rulemakings, standards, registries, and enforcement across federal, state, and international sources.</p>
-        <p class="muted">Published every day, including days with nothing to report — so silence is always explicit, never an outage. Every item links its primary source.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="subscribe.html">Subscribe to the Daily Brief</a>
-        </div>
+        <span class="eyebrow">Subscription confirmed</span>
+        <h1>You're on the list</h1>
+        <p class="lede">Thanks for subscribing — your first edition will arrive on its regular schedule.</p>
       </div>
     </div>
   </section>
 
   <section>
     <div class="container narrow">
-      <div id="brief-root" aria-live="polite">
-        <p class="muted">Loading today's brief…</p>
+      <div class="card" style="background:var(--bg-soft);">
+        <div class="ico">✓</div>
+        <h3>What happens next</h3>
+        <p>Each list you checked will start delivering on its normal cadence — the Daily Brief each day, the Weekly Briefing on Friday evenings, and Insights as new pieces publish. Every email includes an unsubscribe link.</p>
+        <hr style="border:0;border-top:1px solid var(--line);margin:1.2rem 0;">
+        <h3>While you wait</h3>
+        <p>Catch up on the archive: <a href="briefs-archive.html">Daily Brief</a> · <a href="weekly-briefing-archive.html">Weekly Briefing</a> · <a href="insights.html">Insights</a>.</p>
       </div>
-      <noscript>
-        <p>This page renders the brief from a public JSON archive and requires JavaScript for display.
-        The data itself needs no JavaScript: browse the raw archive at
-        <a href="briefs/data/index.json">briefs/data/index.json</a> — one file per day.</p>
-      </noscript>
-      <div id="brief-archive-root"></div>
-    </div>
-  </section>
-
-  <section class="section-soft">
-    <div class="container narrow">
-      <h2>How this brief is produced</h2>
-      <p><strong>Signals are automated; analysis is human-approved.</strong> Deterministic watchers detect that an instrument appeared or changed — those facts publish automatically with a link to the primary source, and no machine-generated text. Any interpretive analysis is written with span-level citations and individually approved by an analyst before it can appear here. No generated text reaches this page without a human decision.</p>
-      <p><strong>Neutral by default.</strong> The brief reports what changed, where, with citations. It does not advocate on pending legislation.</p>
-      <p><strong>Immutable, with corrections.</strong> Once published, a day's brief is never silently edited. Errors are corrected by appended, timestamped correction notices, and the full archive remains browsable.</p>
-      <p class="muted">Questions about the methodology, evaluation targets, or guardrails behind this section? <a href="contact.html">Get in touch</a>.</p>
+      <p class="muted" style="margin-top:1.5rem;">Wrong inbox, or didn't mean to sign up? Email <a href="mailto:info@forevidence.ai">info@forevidence.ai</a> and we'll remove you right away.</p>
     </div>
   </section>
 </main>
@@ -110,6 +100,5 @@
   </div>
 </footer>
 <script src="main.js"></script>
-<script src="briefs.js"></script>
 </body>
 </html>

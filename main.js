@@ -9,13 +9,18 @@
       toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
     });
   }
-  // Footer "last updated" date, kept current by the update-last-updated workflow.
+  // Footer "last updated" date, read live from the repo's latest main commit.
+  // (Replaces the old bot-committed last-updated.json — the repo now requires
+  // all changes to main to go through a PR, so a workflow can't push the file.)
   var lastUpdated = document.getElementById('last-updated');
   if (lastUpdated) {
-    fetch('last-updated.json')
+    fetch('https://api.github.com/repos/forevidence/forevidence.github.io/commits/main')
       .then(function (res) { return res.json(); })
       .then(function (data) {
-        if (data && data.date) lastUpdated.textContent = 'Last updated: ' + data.date;
+        var iso = data && data.commit && data.commit.committer && data.commit.committer.date;
+        if (!iso) return;
+        var date = new Date(iso).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        lastUpdated.textContent = 'Last updated: ' + date;
       })
       .catch(function () {});
   }

@@ -3,11 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://api.github.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; base-uri 'self'; form-action 'self'; object-src 'none'">
   <title>Weekly Briefing — ForEvidence.ai</title>
   <meta name="description" content="ForEvidence Weekly Briefing: a weekly synthesis of movement in AI evaluation, guardrails, observability, standards, and regulation — reviewed before publication.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
+  <script src="analytics.js" defer></script>
 </head>
 <body>
 <header class="site-header">
@@ -43,6 +44,9 @@
         <h1>The ForEvidence Weekly Briefing</h1>
         <p class="lede">A weekly synthesis of movement in AI evaluation, guardrails and observability, standards, and regulation — the analysis layer above the Daily Brief's signal layer.</p>
         <p class="muted">Published Friday evenings. Every edition is drafted, then reviewed and released by a human decision. Every item links its sources.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="subscribe.html">Subscribe to the Weekly Briefing</a>
+        </div>
       </div>
     </div>
   </section>
@@ -94,6 +98,7 @@
       </ul></div>
       <div><h4>Get in touch</h4><ul class="footer-links">
         <li><a href="contact.html">Start a conversation</a></li>
+        <li><a href="subscribe.html">Subscribe for updates</a></li>
         <li><a href="partner.html">Partner with us</a></li>
         <li><a href="mailto:info@forevidence.ai">info@forevidence.ai</a></li>
       </ul></div>

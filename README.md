@@ -24,10 +24,13 @@ One brand, three surfaces:
 | `briefs-archive.html` | Daily Brief archive — every edition by month |
 | `about.html` | About / mission |
 | `contact.html` | Contact + form |
+| `subscribe.html` | Subscribe to the Daily Brief / Weekly Briefing / Insights (Web3Forms → redirects to `subscribe-confirmation.html`) |
+| `subscribe-confirmation.html` | Post-subscription confirmation page (the GA4 conversion target) |
 | `onepage.html` | Single-scroll landing page (alternative / interim) |
 | `company-onepager.html` | Printable one-page company summary (print to Letter → Save as PDF) |
 | `styles.css` | Shared stylesheet (design tokens at top) |
 | `main.js` | Mobile nav + dropdown behavior |
+| `analytics.js` | Site-wide Google Analytics (GA4) + subscription funnel events — set the Measurement ID once at the top of this file (setup steps in the file header). Reports `subscribe_cta_click` → `generate_lead` → `sign_up` (deduped per session); captures UTM/referrer attribution into subscribe-form emails. Loaded in every page's `<head>`. If EU/UK traffic matters, add a consent banner (Consent Mode v2) before production. |
 | `favicon.svg` | Favicon |
 
 ## Preview locally
