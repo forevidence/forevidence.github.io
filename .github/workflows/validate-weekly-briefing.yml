@@ -13,6 +13,7 @@ on:
       - "weekly-briefing.html"
       - "weekly-briefing-archive.html"
       - ".github/scripts/validate_weekly.py"
+      - ".github/scripts/generate_weekly_feed.py"
       - ".github/workflows/validate-weekly-briefing.yml"
   push:
     branches: [main]
@@ -48,3 +49,14 @@ jobs:
           python .github/scripts/validate_weekly.py \
             --base-ref "${{ steps.base.outputs.ref }}" \
             --check-urls
+
+      # main is PR-only, so feed.xml must be committed with the publish PR
+      # rather than pushed by a bot afterward. The generator is deterministic;
+      # a dirty diff here means the PR forgot to regenerate the feed.
+      - name: Check Atom feed is in sync
+        run: |
+          python .github/scripts/generate_weekly_feed.py
+          if ! git diff --exit-code -- weekly-briefing/feed.xml; then
+            echo "::error::weekly-briefing/feed.xml is stale. Run: python .github/scripts/generate_weekly_feed.py and commit the result."
+            exit 1
+          fi

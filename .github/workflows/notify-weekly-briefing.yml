@@ -1,0 +1,70 @@
+name: Announce Weekly Briefing
+
+# When a publish PR merges (index.json changes on main), announce the newest
+# edition to Slack. The human review that approved the PR is the release
+# decision — this workflow only relays it. Read-only; it never writes to the
+# repo, so it cannot collide with the PR-only rule on main.
+#
+# Setup (one time): create a Slack incoming webhook for the channel that
+# should receive briefings (Slack → Apps → Incoming Webhooks), then add its
+# URL as a repository secret named SLACK_WEBHOOK_URL (Settings → Secrets and
+# variables → Actions). Until the secret exists, runs succeed as no-ops.
+#
+# Anyone outside your Slack can follow along instead via the Atom feed:
+# https://forevidence.ai/weekly-briefing/feed.xml (in Slack: /feed subscribe).
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "weekly-briefing/data/index.json"
+
+permissions:
+  contents: read
+
+jobs:
+  announce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Post newest edition to Slack
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          if [ -z "$SLACK_WEBHOOK_URL" ]; then
+            echo "SLACK_WEBHOOK_URL secret not configured — skipping announcement."
+            exit 0
+          fi
+          python3 - <<'EOF'
+          import json, os, urllib.request
+
+          index = json.load(open("weekly-briefing/data/index.json"))
+          editions = sorted(index["editions"], key=lambda e: e["date"])
+          if not editions:
+              print("no editions in index — nothing to announce")
+              raise SystemExit(0)
+          date = editions[-1]["date"]
+          edition = json.load(open(f"weekly-briefing/data/{date}.json"))
+
+          link = f"https://forevidence.ai/weekly-briefing.html?date={date}"
+          headlines = [
+              item["headline"]
+              for section in edition.get("sections", [])
+              for item in section.get("items", [])
+          ][:5]
+          text_lines = [f"*<{link}|{edition.get('title', 'ForEvidence Weekly Briefing — ' + date)}>*"]
+          if edition.get("standfirst"):
+              text_lines.append("_" + edition["standfirst"] + "_")
+          text_lines.extend("• " + h for h in headlines)
+          text_lines.append(f"<{link}|Read the full briefing →>")
+
+          payload = {"text": "\n".join(text_lines)}
+          req = urllib.request.Request(
+              os.environ["SLACK_WEBHOOK_URL"],
+              data=json.dumps(payload).encode(),
+              headers={"Content-Type": "application/json"},
+          )
+          with urllib.request.urlopen(req, timeout=15) as res:
+              print("Slack responded:", res.status)
+          EOF

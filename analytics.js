@@ -16,6 +16,9 @@
 //   sign_up             — the visitor landed on subscribe-confirmation.html
 //                         (deduped per browser session, so refreshes and
 //                         bookmarks don't inflate the conversion count)
+//   rss_subscribe_click — a visitor clicked a feed link (intent only; the
+//                         subscription completes inside their feed reader,
+//                         which is invisible to analytics by design)
 //
 // Prefer Google Tag Manager? Replace the loader block below with your GTM
 // container snippet and manage tags in the GTM UI instead — the dataLayer
@@ -60,6 +63,18 @@
       a.addEventListener('click', function () {
         gtag('event', 'subscribe_cta_click', {
           link_text: a.textContent.trim(),
+          page_path: window.location.pathname
+        });
+      });
+    });
+
+    // RSS is subscribe *intent* only — the actual subscription completes
+    // inside the visitor's feed reader, where no script of ours runs, so
+    // this click is the last observable moment of that funnel.
+    document.querySelectorAll('a[href$="feed.xml"]').forEach(function (a) {
+      a.addEventListener('click', function () {
+        gtag('event', 'rss_subscribe_click', {
+          feed_path: a.getAttribute('href'),
           page_path: window.location.pathname
         });
       });
