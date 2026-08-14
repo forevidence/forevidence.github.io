@@ -12,12 +12,16 @@ name: Announce Weekly Briefing
 #
 # Anyone outside your Slack can follow along instead via the Atom feed:
 # https://forevidence.ai/weekly-briefing/feed.xml (in Slack: /feed subscribe).
+#
+# To test after adding the secret: Actions → "Announce Weekly Briefing" →
+# "Run workflow" — it announces the newest already-published edition.
 
 on:
   push:
     branches: [main]
     paths:
       - "weekly-briefing/data/index.json"
+  workflow_dispatch:
 
 permissions:
   contents: read
