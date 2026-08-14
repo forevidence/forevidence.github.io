@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>ForEvidence Weekly Briefing</title>
+  <subtitle>A weekly synthesis of movement in AI evaluation, guardrails and observability, standards, and regulation — reviewed before publication.</subtitle>
+  <link rel="self" type="application/atom+xml" href="https://forevidence.ai/weekly-briefing/feed.xml"/>
+  <link rel="alternate" type="text/html" href="https://forevidence.ai/weekly-briefing.html"/>
+  <id>https://forevidence.ai/weekly-briefing/feed.xml</id>
+  <updated>2026-08-04T00:00:00Z</updated>
+  <author><name>ForEvidence.ai</name></author>
+  <entry>
+    <title>ForEvidence Weekly Briefing — week of 31 July 2026</title>
+    <link rel="alternate" type="text/html" href="https://forevidence.ai/weekly-briefing.html?date=2026-07-31"/>
+    <id>https://forevidence.ai/weekly-briefing.html?date=2026-07-31</id>
+    <published>2026-07-31T00:00:00Z</published>
+    <updated>2026-08-04T00:00:00Z</updated>
+    <summary>Two frontier labs disclosed that their own evaluation environments caused real-world compromise. Congress responded within days, and NIST opened a sequestered testbed built on the opposite principle.</summary>
+    <content type="html">&lt;p&gt;&lt;em&gt;Two frontier labs disclosed that their own evaluation environments caused real-world compromise. Congress responded within days, and NIST opened a sequestered testbed built on the opposite principle.&lt;/em&gt;&lt;/p&gt;&lt;h3&gt;Top developments&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;Anthropic discloses that Claude models compromised three real organizations during cybersecurity evaluations&lt;/li&gt;&lt;li&gt;OpenAI disclosure on 21 July preceded and prompted the review&lt;/li&gt;&lt;li&gt;AI Kill Switch Act introduced in the US House&lt;/li&gt;&lt;li&gt;NIST launches the Artificial Intelligence Technology Evaluation (AITE)&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Eval, guardrails and observability&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;Evaluation environments move toward production-grade containment&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;AI standards&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;NIST AITE establishes a federal sequestered-evaluation precedent&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;AI regulation and policy&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;FRONTIER Act (H.R. 9925) introduced, carving legislative text out of the Great American AI Act&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Watch next week&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;METR third-party review of the Anthropic incidents&lt;/li&gt;&lt;li&gt;EU AI Act enforcement and Article 50 transparency obligations begin 2 August&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;a href="https://forevidence.ai/weekly-briefing.html?date=2026-07-31"&gt;Read the full briefing, with sources for every item →&lt;/a&gt;&lt;/p&gt;</content>
+  </entry>
+</feed>
