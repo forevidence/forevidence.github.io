@@ -28,7 +28,7 @@
 // consent banner (Google Consent Mode v2) before going live in production.
 (function () {
   'use strict';
-  var GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
+  var GA_MEASUREMENT_ID = 'G-8M5PN50CFE';
   var configured = GA_MEASUREMENT_ID.indexOf('XXXXXXXX') === -1;
 
   window.dataLayer = window.dataLayer || [];
